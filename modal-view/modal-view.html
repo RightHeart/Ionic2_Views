@@ -1,0 +1,14 @@
+<!--
+  Generated template for the ModalView page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<div class=" fullscreen-image"  (click)="dismiss()">
+  <img [src] = "videoSource?.ImageUrl"  onerror="this.src='assets/img/Offline.jpg'" (load)="refreshPreview()">
+  </div>
+
+

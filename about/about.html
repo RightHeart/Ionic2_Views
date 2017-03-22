@@ -1,0 +1,75 @@
+<!--
+  Generated template for the About page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> {{ 'txtAbout' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+            <img class="aboutLogo">
+
+            <div class="item item-divider">
+                {{ 'txtClient' | translate }}
+            </div>
+            <button ion-item clear full large (click)="easterEgg()" style="border-right: none;">
+              <ion-label class="item">
+                <p>Netcam Studio Mobile 3.4.7</p>
+                <p>&copy; 2014-2016 Moonware Studios</p>
+              </ion-label>
+            </button>
+
+            <div class="item item-divider">
+               {{ 'txtServer' | translate }}
+            </div>
+
+            <ion-label class="item">
+                <p>{{processInfo?.ProcessName}} {{processInfo?.SoftwareVersion.Major}}.{{processInfo?.SoftwareVersion.Minor}}.{{processInfo?.SoftwareVersion.Build}}.{{processInfo?.SoftwareVersion.Revision}}</p>
+                <p>{{ 'txtOnlineSince' | translate }} {{processInfo?.ProcessStartDate | date: 'dd/MM/yyyy H:mm:ss'}}</p>
+            </ion-label>
+
+            <div class="item item-divider">
+                {{ 'txtServerStatus' | translate }}
+            </div>
+
+            <ion-label class="item">
+                <p>{{ 'txtServerStatus' | translate }}: {{processInfo?.MemorySize}}Mb / {{processInfo?.MemoryPeak}}Mb</p>
+                <p>{{ 'txtCPU' | translate }}: {{processInfo?.CPU}} - {{ 'txtThreads' | translate }}: {{processInfo?.Threads}} - {{ 'txtHandles' | translate }}: {{processInfo?.Handles}}</p>
+                <button ion-button color = "danger" icon-only  (click)="refreshProcessInfo()">
+                  <ion-icon name="refresh" ></ion-icon>
+                </button>
+                <!--<button class="button button-small button-assertive icon ion-refresh" (click)="refreshProcessInfo()">
+                </button>-->
+            </ion-label>
+
+            <!--<div class="item item-divider" *ngif="deviceInfo.platform !== undefined">
+              {{ 'txtDeviceInfo' | translate }}
+            </div>-->
+
+            <!--<label class="item" *ngif="deviceInfo.model !== undefined">
+                <p>{{deviceInfo.model}}</p>
+            </label>
+
+            <label class="item" *ngif="deviceInfo.platform !== undefined">
+                <p>{{deviceInfo.platform}} {{deviceInfo.version}} / Cordova {{deviceInfo.cordova}}</p>
+            </label>
+
+
+            <label class="item">
+                <p ng-if="pushInfo.pushAvailable == 1">Push: Available ({{pushInfo.deviceToken}})</p>
+                <p ng-if="pushInfo.pushAvailable != 1">Push: Disabled</p>
+            </label>-->
+
+  </ion-list>
+
+</ion-content>

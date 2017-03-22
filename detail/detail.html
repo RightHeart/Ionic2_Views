@@ -1,0 +1,89 @@
+<!--
+  Generated template for the Detail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{videoSource?.SourceName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+  <!--<div class="wrap">-->
+    <ion-item>
+      <img [src] = "videoSource?.ImageUrl"  (load)="refreshPreview()"  onerror="this.src='assets/img/Offline.jpg'" (click)="showModal(videoSource?.InternalId)">
+    </ion-item>
+    <ion-item>
+      <button ion-button class="btn-49" medium outline color="danger" *ngIf="!isRecording" (click)="switchRecording()" >
+         <ion-icon name="md-play"></ion-icon>&nbsp;&nbsp; {{ 'txtRecord' | translate }}
+        </button>
+
+        <button ion-button class="btn-49"    color="danger" *ngIf="isRecording"  (click)="switchRecording()">
+         <ion-icon name="md-square"></ion-icon>&nbsp;&nbsp;{{ 'txtRecord' | translate }}
+        </button>
+
+        <button ion-button class="btn-49"   outline color="dark" *ngIf="!audioPlaying" [hidden]="!videoSource.Status.HasAudio"  (click)="playAudio()">
+         <ion-icon name="ios-volume-up"></ion-icon>&nbsp;&nbsp;{{ 'txtAudio' | translate }}
+        </button>
+        <button ion-button class="btn-49"    color="dark" *ngIf="audioPlaying" [hidden]="!videoSource.Status.HasAudio"  (click)="playAudio()">
+         <ion-icon name="ios-volume-off"></ion-icon>&nbsp;&nbsp;{{ 'txtAudio' | translate }}
+        </button>
+    </ion-item>
+    
+  </ion-list>
+  <!--<ion-item-divider></ion-item-divider>-->
+  <ion-card *ngIf="videoSource.Status.HasPTZ && ptzEnabled">
+    <button ion-item full clear (click)="panToggleDetails()" style="background: #dedede;">
+      <ion-icon name = "ios-compass"> &nbsp;&nbsp;{{ 'txtPanAndTilt' | translate }}</ion-icon>
+    </button>
+    <div *ngIf="pan" style="padding: 20px;">
+      <div class="panTiltPanel centered">
+        <button ion-button icon-only class="panTilt panTiltLeft" (click)="ptzControl('Left')">
+          <ion-icon name = "ios-arrow-back"></ion-icon>
+        </button>
+        <button ion-button icon-only class="panTilt panTiltRight" (click)="ptzControl('Right')">
+          <ion-icon name = "ios-arrow-forward"></ion-icon>
+        </button>
+        <button ion-button icon-only class="panTilt panTiltUp" (click)="ptzControl('Up')">
+          <ion-icon name = "ios-arrow-up"></ion-icon>
+        </button>
+        <button ion-button icon-only class="panTilt panTiltDown" (click)="ptzControl('Down')">
+          <ion-icon name = "ios-arrow-down"></ion-icon>
+        </button>
+      </div>
+      <div class="zoomPanel centered">
+        <span class="zoomButton zoomIn">+</span>
+        <button ion-button icon-only class="panTiltRed panTiltRedLeft" (click)="ptzControl('ZoomOut')">
+          <ion-icon name = "ios-arrow-back"></ion-icon>
+        </button>
+        <button ion-button icon-only class="panTiltRed panTiltRedRight" (click)="ptzControl('ZoomIn')">
+          <ion-icon name = "ios-arrow-forward"></ion-icon>
+        </button>
+        <span class="zoomButton zoomOut">-</span>
+      </div>
+    </div>
+</ion-card>
+
+<ion-card>
+    <button ion-item full clear (click)="featureToggleDetails()" style="background: #dedede;">
+      <ion-icon name = "ios-switch"> &nbsp;&nbsp;{{ 'txtFeatures' | translate }}</ion-icon>
+    </button>
+    <div *ngIf="feature">
+        <ion-item>
+          <ion-label>{{ 'txtMotionDetection' | translate }}</ion-label>
+          <ion-toggle color="energized" checked="true"  [(ngModel)]="isMotionDetector" (ngModelChange)="switchMotionDetector(isMotionDetector)"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ 'txtAudioDetection' | translate }}</ion-label>
+          <ion-toggle color="energized" checked="true"  [(ngModel)]="isAudioDetector" (ngModelChange)="switchAudioDetector(isAudioDetector)"></ion-toggle>
+        </ion-item>
+    </div>
+</ion-card>
+  <!--</div>-->
+</ion-content>

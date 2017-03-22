@@ -1,0 +1,15 @@
+<!--
+  Generated template for the ModalVideo page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<div class="modal transparent">
+    <img src="assets/img/close.png" class="closeButton" (click)="dismiss()">
+    <video class="video-js vjs-default-skin fullscreen-image" controls  preload="auto"  [poster]="currentItem.ImageUrl"
+                  data-setup="{}">
+          <source [src]="currentItem.MovieUrl" type='video/mp4'>
+    </video>
+</div>
+

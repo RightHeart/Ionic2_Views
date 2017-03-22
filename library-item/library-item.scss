@@ -1,0 +1,19 @@
+page-library-item {
+    .label, .label-md{
+        display: flex;
+    }
+
+    video{
+        margin: 0 auto;
+    }
+
+    .videoBackground
+{
+    background-color: #cccccc;
+    background: -webkit-linear-gradient(#cccccc, #ffffff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#cccccc, #ffffff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#cccccc, #ffffff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#cccccc, #ffffff); /* Standard syntax */
+}
+
+}

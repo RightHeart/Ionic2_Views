@@ -1,0 +1,18 @@
+page-add-server {
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner{
+        border-bottom-color: #dedede;
+        box-shadow: none;
+    }
+
+    ion-label{
+        width:40%;
+        // color:black;
+    }
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md{
+        color: black;
+    }
+    .button{
+        margin-left:10px;
+    }
+
+}

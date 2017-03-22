@@ -1,0 +1,31 @@
+page-modal-video {
+      .label, .label-md{
+        display: flex;
+    }
+
+    
+    video{
+        border-radius: 3px;
+        border: 1px solid;
+        max-width: 100%;
+        margin:0 auto;
+    }
+
+    
+
+     .closeButton {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 20;
+        border: 0;
+    }
+
+    
+    
+
+}

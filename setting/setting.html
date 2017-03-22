@@ -1,0 +1,51 @@
+<!--
+  Generated template for the Setting page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'txtSettings' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>{{ 'txtPushNotifications' | translate }}</ion-label>
+      <ion-toggle color="energized" checked="true"></ion-toggle>
+    </ion-item>
+  <ion-item>
+    <ion-label>{{ 'txtLanguage' | translate }}</ion-label>
+    <ion-select [(ngModel)]="userSettings.Language" (ngModelChange)="changeLanguage(userSettings.Language)">
+      <ion-option value="dk">Danish / Danske</ion-option>
+      <ion-option value="nl">Dutch / Nederlands</ion-option>
+      <ion-option value="en">English</ion-option>
+      <ion-option value="fr">French / Français</ion-option>
+      <ion-option value="it">Italian / Italiano</ion-option>
+      <ion-option value="jp">Japanese / 日本語</ion-option>
+      <ion-option value="no">Norwegian / Norsk</ion-option>
+      <ion-option value="pl">Polish / Polski</ion-option>
+      <ion-option value="pt-BR">Portuguese (Brazil) / Português (Brasil)</ion-option>
+      <ion-option value="se">Swedish / Svenska</ion-option>
+      <ion-option value="ro">Romanian / Român</ion-option>
+      <ion-option value="ru">Russian / Pусский</ion-option>
+      <ion-option value="vn">Vietnamese / Tiếng Việt</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <div>{{ 'txtClearSettings' | translate }}</div>
+    <button ion-button color = "danger"  icon-only  item-right (click)="confirmSettingsClear()" style="padding: 5px;">
+         <ion-icon name="close" ></ion-icon>
+    </button>
+  </ion-item>
+</ion-list>
+
+</ion-content>

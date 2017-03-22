@@ -1,0 +1,32 @@
+<!--
+  Generated template for the MultiView page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'txtMultiView' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+ <div  *ngFor="let videoSource of videoSources; let even = even; let odd = odd;  let i = index">
+   	<div class="row" *ngIf="even" >
+     <div class=" multiViewItem col"><img id="img{{i}}"  [src] = "videoSources[i].ImageUrl"  onerror="this.src='assets/img/Offline.jpg'"  (load)="refreshPreview(videoSources[i].InternalId)" (click)="showModal(videoSources[i].InternalId)"></div>
+     <div class=" multiViewItem col"><img id="img{{i+1}}"  [src] = "videoSources[i+1].ImageUrl" onerror="this.src='assets/img/Offline.jpg'" (load)="refreshPreview(videoSources[i+1].InternalId)" (click)="showModal(videoSources[i+1].InternalId)"></div>
+   	</div>
+</div>
+
+ <!--<ion-list  *ngFor="let videoSource of videoSources; let even = even; let odd = odd;  let i = index">
+   	<ion-item class="row" *ngIf="even" nopadding >
+     <div class=" multiViewItem col"><img id="img{{i}}"  [src] = "videoSources[i].ImageUrl" (load)="refreshPreview(videoSources[i].InternalId)" (click)="showModal(videoSources[i].InternalId)"></div>
+     <div class=" multiViewItem col"><img id="img{{i+1}}"  [src] = "videoSources[i+1].ImageUrl" (load)="refreshPreview(videoSources[i+1].InternalId)" (click)="showModal(videoSources[i+1].InternalId)"></div>
+   	</ion-item>
+ </ion-list>-->
+</ion-content>
